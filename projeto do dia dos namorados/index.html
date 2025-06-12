@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Página Marítima</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #a2d4f3, #0077be);
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .botao-mar {
+      padding: 15px 40px;
+      font-size: 20px;
+      background-color: rgba(0, 47, 75, 0.85); /* azul-marinho com transparência */
+      color: #ffffff;
+      border: 2px solid #ffb703; /* amarelo alga-dourada */
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .botao-mar:hover {
+      background-color: rgba(0, 80, 120, 0.9);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <button class="botao-mar" onclick="window.location.href='pag1.html'">Clique Aqui Meu Bem</button>
+</body>
+</html>
