@@ -2,11 +2,17 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Página Marítima</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surpresa</title>
   <style>
-    body {
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -14,11 +20,13 @@
       background: linear-gradient(to bottom, #a2d4f3, #0077be);
       background-size: cover;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
     }
 
     .botao-mar {
       padding: 15px 40px;
-      font-size: 20px;
+      font-size: clamp(16px, 4vw, 22px); /* Tamanho de fonte responsivo */
       background-color: rgba(0, 47, 75, 0.85); /* azul-marinho com transparência */
       color: #ffffff;
       border: 2px solid #ffb703; /* amarelo alga-dourada */
@@ -26,6 +34,8 @@
       cursor: pointer;
       box-shadow: 0 8px 16px rgba(0,0,0,0.3);
       transition: background-color 0.3s ease, transform 0.2s;
+      max-width: 90vw;
+      width: auto;
     }
 
     .botao-mar:hover {

@@ -1,15 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para o meu amorzinho <3</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para o meu Amorzinho</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #ffffff);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    img {
+      max-width: 80%;
+      height: auto;
+      margin-top: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .mensagem {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #444;
+    }
+
+    .poema {
+      margin: 30px auto;
+      max-width: 700px;
+      background-color: #fff0f5;
+      border-left: 5px solid #ff69b4;
+      padding: 20px;
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #222;
+      font-style: italic;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Animação dos corações */
+    .coracao {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      color: #ff4d6d;
+      animation: cair 6s linear infinite;
+      user-select: none;
+      z-index: 10;
+    }
+
+    @keyframes cair {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Player de música */
+    .musica {
+      margin-top: 40px;
+    }
+
+  </style>
 </head>
 <body>
-    <h1>Teste</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus iste assumenda libero soluta maxime modi temporibus ipsa repellat natus iure cumque voluptatum nemo eveniet molestiae, vitae omnis! Nostrum, repudiandae?
-    Velit quaerat, placeat corporis laborum tempora saepe nesciunt porro dolorum sequi laudantium assumenda excepturi! Earum blanditiis illum incidunt tenetur. Nihil magnam cupiditate sequi excepturi unde illo quia voluptates perspiciatis sunt!
-    Ipsa dolor harum illum ipsum alias nemo, facere nobis, eaque possimus officiis, laborum eos. Tempora quisquam dolorum laudantium rem esse suscipit cupiditate libero vel accusantium debitis commodi quaerat, quam dignissimos.
-    Beatae, sapiente. Quo cupiditate sit explicabo? Possimus expedita repudiandae unde assumenda vel aliquam ea alias provident, non officiis accusamus dolore soluta, minus porro? Illum, facilis enim similique voluptas veniam aliquid!</p>
+
+  <!-- Imagem no topo -->
+  <img src="imagem.jpg" alt="Imagem especial">
+
+  <!-- Mensagem -->
+  <div class="mensagem">
+    Nosso Primeiro Dia dos Namorados oficialmente juntos💖
+  </div>
+
+  <!-- Poema em destaque -->
+  <div class="poema">
+    No fundo do mar do teu olhar,  
+    Navega meu coração sem temer,  
+    Entre ondas doces e salgadas,  
+    Te amar é simplesmente viver.  
+    <br><br>
+    E mesmo nas noites silenciosas,  
+    Teu nome ecoa como um farol,  
+    Guiando-me com luz tão amorosa,  
+    Meu porto seguro, meu sol.  
+  </div>
+
+  <!-- Player de música -->
+  <div class="musica">
+    <audio controls>
+      <source src="musica.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio HTML5.
+    </audio>
+  </div>
+
+  <!-- Corações caindo -->
+  <script>
+    function criarCoracao() {
+      const coracao = document.createElement('div');
+      coracao.classList.add('coracao');
+      coracao.textContent = '❤️';
+      coracao.style.left = Math.random() * 100 + 'vw';
+      coracao.style.animationDuration = (Math.random() * 2 + 4) + 's';
+      document.body.appendChild(coracao);
+
+      setTimeout(() => {
+        coracao.remove();
+      }, 6000);
+    }
+
+    setInterval(criarCoracao, 300);
+  </script>
+
 </body>
 </html>
