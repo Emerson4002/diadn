@@ -7,20 +7,36 @@
   <style>
     body {
       margin: 0;
-      padding: 0 20px 60px; /* Espaço extra no rodapé */
+      padding: 0 20px 60px;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom, #ffe6f0, #ffffff);
       text-align: center;
     }
 
+    .topo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .topo-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
     .foto-topo {
-      width: 400px;
-      height: 400px;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       object-fit: cover;
       transition: opacity 1s ease-in-out;
-      margin-top: 30px;
     }
 
     .mensagem {
@@ -63,20 +79,29 @@
       }
     }
 
-    .musica {
-      margin-top: 40px;
+    .musica audio {
+      width: 250px;
+      max-width: 90vw;
     }
   </style>
 </head>
 <body>
 
-  <!-- Imagem do topo com troca automática -->
-  <img id="imagemTopo" class="foto-topo" src="imagem1.jpeg" alt="Imagem especial" />
+  <!-- Imagem e player lado a lado -->
+  <div class="topo-container">
+    <img id="imagemTopo" class="foto-topo" src="imagem1.jpeg" alt="Imagem especial" />
+    <div class="musica">
+      <audio id="player" controls>
+        <source src="musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio HTML5.
+      </audio>
+    </div>
+  </div>
 
   <!-- Mensagem -->
   <div class="mensagem">
     Nosso Primeiro Dia dos Namorados oficialmente juntos💖<br>
-    Que a gente continue criando memorias juntos, Te amo meu bem 💖
+    Que a gente continue criando memórias juntos. Te amo meu bem 💖
   </div>
 
   <!-- Poema -->
@@ -98,14 +123,6 @@
     A vida boa com você ❤️
   </div>
 
-  <!-- Música -->
-  <div class="musica">
-    <audio id="player" controls>
-      <source src="musica.mp3" type="audio/mpeg">
-      Seu navegador não suporta áudio HTML5.
-    </audio>
-  </div>
-
   <!-- Corações caindo -->
   <script>
     function criarCoracao() {
@@ -124,7 +141,7 @@
     setInterval(criarCoracao, 300);
 
     // Troca de imagens
-    const imagens = ['imagem1.jpeg', 'imagem2.jpeg','imagem3.jpeg','imagem4.jpeg','imagem5.jpeg']; // Substitua pelos nomes corretos
+    const imagens = ['imagem1.jpeg', 'imagem2.jpeg', 'imagem3.jpeg', 'imagem4.jpeg', 'imagem5.jpeg'];
     let indice = 0;
     const imagem = document.getElementById('imagemTopo');
 
@@ -137,12 +154,10 @@
       }, 1000);
     }, 5000);
 
-    // Música autoplay com fallback em clique/touch
+    // Autoplay com fallback
     const player = document.getElementById('player');
-
     window.addEventListener('load', () => {
       const tentativa = player.play();
-
       if (tentativa !== undefined) {
         tentativa.catch(() => {
           const iniciarSom = () => {
